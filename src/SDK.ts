@@ -889,7 +889,7 @@ export class SDK {
    * @param {PrimaryKeyType} primaryKey
    * @param {QueryParamsType?} params
    */
-  public updateUser<User extends Partial<IUser>>(primaryKey: PrimaryKeyType, body: User) {
+  public updateUser<User extends Partial<IUser & {password?: string}>>(primaryKey: PrimaryKeyType, body: User) {
     return this.updateItem<User, IUser>("directus_users", primaryKey, body);
   }
 
